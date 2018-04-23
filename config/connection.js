@@ -2,7 +2,7 @@ var mysql = require("mysql");
 
 ///loads environment variables from .env file
 //.env holds mySQL password
-require("dotenv").config();
+// require("dotenv").config();
 
 var connection;
 if(process.env.JAWSDB_URL) {

@@ -6,7 +6,7 @@ var router = require("./controllers/burgers_controller")
 
 //create instance of express server and define port
 var app = express();
-var port = process.env.port || 3000;
+var port = process.env.PORT || 3000;
 
 // Parse application/x-www-form-urlencoded and json
 app.use(bodyParser.urlencoded({ extended: false }));

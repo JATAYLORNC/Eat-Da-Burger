@@ -4,13 +4,20 @@ var mysql = require("mysql");
 //.env holds mySQL password
 require("dotenv").config();
 
-//establish a connection to mySQL burgers_db
-var connection = mysql.createConnection({
-  host: "localhost",
-  user: "root",
-  password: process.env.password,
-  database: "burgers_db"
-});
+var connection;
+if(process.env.JAWSDB_URL) {
+  //Heroku deployment
+    connection = mysql.createConnection(process.env.JAWSDB_URL);
+} else {
+  //local host
+    connection = mysql.createConnection({
+        root: 3000,
+        host: "localhost",
+        user: "root",
+        password: process.env.password,
+        database: "burgers_db"
+    });
+};
 
 //use the connection
 connection.connect(function(err) {
